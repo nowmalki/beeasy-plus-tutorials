@@ -1,0 +1,12 @@
+{
+  "file_name": "ep15-pixels.mp4",
+  "kind": "public",
+  "playlist": "שיווק לסוכן",
+  "title": "פיקסל פייסבוק, גוגל וטיקטוק לאתר סוכן נסיעות | בי איזי פלוס מדריך #15",
+  "description": "איך מחברים פיקסלים של מטא, גוגל וטיקטוק לדפים הציבוריים של הסוכנות בבי איזי פלוס, כדי למדוד את הקמפיינים: הזנת מזהים ציבוריים בלבד, מזהה המרה ותוויות של Google Ads, שמירה, אילו אירועים נמדדים, ואיך הפיקסלים נטענים רק אחרי הסכמת המבקר לעוגיות.\n\nהסרטון מוקלט על סוכנות הדגמה בדיונית. כל המזהים והנתונים לדוגמה בלבד.\n\nפרקים:\n0:00 פתיחה\n0:13 מזהים ציבוריים: Meta, GTM ו-TikTok\n0:31 Google Ads: מזהה המרה ותוויות\n0:42 שמירה ואילו אירועים נמדדים\n0:58 פרטיות והסכמת המבקר\n\nלהצטרפות לבי איזי פלוס: https://plus.beeasy.pro\nמאגר הידע והמדריכים: https://plus.beeasy.pro/he/knowledge\n\n#בי_איזי_פלוס #סוכנות_נסיעות #פיקסל",
+  "tags": "בי איזי פלוס,BEEASY PLUS,פיקסל פייסבוק,Meta Pixel,Google Tag Manager,TikTok Pixel,מדידת קמפיינים,שיווק לסוכני נסיעות,מדריך",
+  "thumbnail_url": "https://raw.githubusercontent.com/nowmalki/beeasy-plus-tutorials/main/thumbs/ep15-pixels.png",
+  "video_url": "https://raw.githubusercontent.com/nowmalki/beeasy-plus-tutorials/main/videos/ep15-pixels.mp4",
+  "recorded_version": "claude/lhtravel-search-results-clz375 @ 8b07fd5c",
+  "upload_status": "pending: YouTube daily upload limit"
+}
