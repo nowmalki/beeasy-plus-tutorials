@@ -39,7 +39,8 @@
     "ep50-hotel-offer",
     "ep51-package-flight",
     "ep53-flight-filters",
-    "ep54-package-filters"
+    "ep54-package-filters",
+    "ep55-event-package"
   ],
   "done": []
 }
