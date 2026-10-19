@@ -29,7 +29,8 @@
     "ep41-clients",
     "ep42-site-deals",
     "ep33-smart-itinerary",
-    "ep44-pricing-margin"
+    "ep44-pricing-margin",
+    "ep32-oneway-types"
   ],
   "done": []
 }
