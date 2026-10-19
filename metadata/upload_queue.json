@@ -2,14 +2,6 @@
   "daily_limit": 6,
   "note": "Uploaded in this order by the daily upload task (Make scenario 4983530). kind 'unlisted' episodes stay unlisted; everything else uploads private for owner review. On success set metadata video_id + upload_status 'uploaded <date>' and remove from pending.",
   "pending": [
-    "ep56-speed-to-lead",
-    "ep57-offer-that-closes",
-    "ep58-follow-up",
-    "ep59-profit-not-price",
-    "ep60-agency-process",
-    "ep61-marketing-leads",
-    "ep04-flight-search",
-    "ep05-flight-quote",
     "ep06-hotel-search",
     "ep07-package-search",
     "ep08-split-flights",
@@ -52,5 +44,14 @@
     "ep48-elite",
     "ep49-hotel-filters"
   ],
-  "done": []
+  "done": [
+    "ep56-speed-to-lead",
+    "ep57-offer-that-closes",
+    "ep58-follow-up",
+    "ep59-profit-not-price",
+    "ep60-agency-process",
+    "ep61-marketing-leads",
+    "ep04-flight-search",
+    "ep05-flight-quote"
+  ]
 }
