@@ -38,7 +38,8 @@
     "ep43-dark-languages",
     "ep50-hotel-offer",
     "ep51-package-flight",
-    "ep53-flight-filters"
+    "ep53-flight-filters",
+    "ep54-package-filters"
   ],
   "done": []
 }
