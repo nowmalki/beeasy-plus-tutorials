@@ -2,10 +2,6 @@
   "daily_limit": 10,
   "note": "Uploaded in this order by the daily upload task (Make scenario 4983530). kind 'unlisted' episodes stay unlisted; everything else uploads private for owner review. On success set metadata video_id + upload_status 'uploaded <date>' and remove from pending.",
   "pending": [
-    "beeasy-plus-onboarding-he",
-    "beeasy-plus-onboarding-en",
-    "beeasy-plus-onboarding-ru",
-    "beeasy-plus-onboarding-ar",
     "ep08-split-flights",
     "ep17-smart-search",
     "ep09-events",
@@ -56,6 +52,10 @@
     "ep04-flight-search",
     "ep05-flight-quote",
     "ep06-hotel-search",
-    "ep07-package-search"
+    "ep07-package-search",
+    "beeasy-plus-onboarding-he",
+    "beeasy-plus-onboarding-en",
+    "beeasy-plus-onboarding-ru",
+    "beeasy-plus-onboarding-ar"
   ]
 }
