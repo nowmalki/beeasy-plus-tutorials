@@ -2,16 +2,6 @@
   "daily_limit": 10,
   "note": "Uploaded in this order by the daily upload task (Make scenario 4983530). kind 'unlisted' episodes stay unlisted; everything else uploads private for owner review. On success set metadata video_id + upload_status 'uploaded <date>' and remove from pending.",
   "pending": [
-    "ep21-holiday-page",
-    "ep15-pixels",
-    "ep23-dashboard",
-    "ep22-multi-city",
-    "ep24-offers-center",
-    "ep25-deals-center",
-    "ep26-recent-deals",
-    "ep29-account-credits",
-    "ep30-notifications-activity",
-    "ep38-community",
     "ep39-leads-export",
     "ep28-trip-planner",
     "ep27-knowledge",
@@ -56,6 +46,16 @@
     "ep08-split-flights",
     "ep17-smart-search",
     "ep09-events",
-    "ep16-plans"
+    "ep16-plans",
+    "ep21-holiday-page",
+    "ep15-pixels",
+    "ep23-dashboard",
+    "ep22-multi-city",
+    "ep24-offers-center",
+    "ep25-deals-center",
+    "ep26-recent-deals",
+    "ep29-account-credits",
+    "ep30-notifications-activity",
+    "ep38-community"
   ]
 }
