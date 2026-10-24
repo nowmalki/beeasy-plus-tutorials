@@ -12,10 +12,15 @@ VIDEOS, OUT = ROOT / 'videos', ROOT / 'captions'
 BRAND = re.compile(r'\bbe\s*-?\s*easy\s*plus\b|ביאיזי\s*פלוס', re.I)
 
 
-def transcribe(audio: pathlib.Path):
+def lang(ep):
+    m = re.search(r'-(he|en|ru|ar)$', ep)
+    return m.group(1) if m else 'he'
+
+
+def transcribe(audio: pathlib.Path, language='he'):
     boundary = uuid.uuid4().hex
     parts = []
-    for name, value in (('model_id', 'scribe_v1'), ('language_code', 'he'), ('timestamps_granularity', 'word'), ('tag_audio_events', 'false')):
+    for name, value in (('model_id', 'scribe_v1'), ('language_code', language), ('timestamps_granularity', 'word'), ('tag_audio_events', 'false')):
         parts.append(f'--{boundary}\r\nContent-Disposition: form-data; name="{name}"\r\n\r\n{value}\r\n'.encode())
     parts.append(f'--{boundary}\r\nContent-Disposition: form-data; name="file"; filename="a.mp3"\r\nContent-Type: audio/mpeg\r\n\r\n'.encode() + audio.read_bytes() + b'\r\n')
     parts.append(f'--{boundary}--\r\n'.encode())
@@ -42,7 +47,7 @@ def wrap(text, width=42):
     return f'{best[1]}\n{best[2]}'
 
 
-def cues(words):
+def cues(words, language='he'):
     out, cur = [], []
     for w in words:
         if cur:
@@ -53,7 +58,7 @@ def cues(words):
         cur.append(w)
     if cur:
         out.append(cur)
-    return [(c[0]['start'], max(c[-1]['end'], c[0]['start'] + 1.0), BRAND.sub('בי איזי פלוס', ' '.join(x['text'] for x in c))) for c in out]
+    return [(c[0]['start'], max(c[-1]['end'], c[0]['start'] + 1.0), BRAND.sub('בי איזי פלוס' if language == 'he' else 'BEEASY PLUS', ' '.join(x['text'] for x in c))) for c in out]
 
 
 def build(ep, force=False):
@@ -63,9 +68,9 @@ def build(ep, force=False):
     with tempfile.TemporaryDirectory() as tmp:
         audio = pathlib.Path(tmp) / 'a.mp3'
         subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', '-i', str(VIDEOS / f'{ep}.mp4'), '-vn', '-ac', '1', '-ar', '16000', '-b:a', '48k', str(audio)], check=True)
-        result = transcribe(audio)
+        result = transcribe(audio, lang(ep))
     words = [w for w in result.get('words', []) if w.get('type') == 'word' and w.get('text', '').strip()]
-    items = cues(words)
+    items = cues(words, lang(ep))
     for i in range(len(items) - 1):  # never overlap the next cue
         s, e, t = items[i]
         items[i] = (s, min(e + 0.25, items[i + 1][0] - 0.05), t)
@@ -77,7 +82,7 @@ if __name__ == '__main__':
     args = [a for a in sys.argv[1:] if not a.startswith('--')]
     force = '--force' in sys.argv
     OUT.mkdir(exist_ok=True)
-    eps = args or sorted(p.stem for p in VIDEOS.glob('ep*.mp4')) + sorted(p.stem for p in VIDEOS.glob('beeasy-plus-onboarding-he.mp4'))
+    eps = args or sorted(p.stem for p in VIDEOS.glob('ep*.mp4')) + sorted(p.stem for p in VIDEOS.glob('beeasy-plus-onboarding-*.mp4'))
     for ep in eps:
         try:
             print(ep, build(ep, force), flush=True)

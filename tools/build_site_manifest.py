@@ -22,6 +22,23 @@ def chapters(description):
     return out
 
 
+def duration(video):
+    if not video.exists():
+        return None
+    out = subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', str(video)], capture_output=True, text=True)
+    try:
+        return round(float(out.stdout.strip()))
+    except ValueError:
+        return None
+
+
+def transcript(srt):
+    if not srt.exists():
+        return ''
+    lines = [line.strip() for line in srt.read_text(encoding='utf-8').splitlines()]
+    return ' '.join(line for line in lines if line and not line.isdigit() and '-->' not in line)
+
+
 def main():
     (SITE / 'thumbs').mkdir(parents=True, exist_ok=True)
     videos = {}
@@ -35,7 +52,9 @@ def main():
         src, thumb = THUMBS / f'{path.stem}.png', SITE / 'thumbs' / f'{path.stem}.jpg'
         if src.exists() and (not thumb.exists() or thumb.stat().st_mtime < src.stat().st_mtime):
             subprocess.run(['convert', str(src), '-resize', '640x360', '-strip', '-quality', '78', str(thumb)], check=True)
-        videos[path.stem] = {'id': vid, 'title': data.get('title', ''), 'chapters': chapters(data.get('description', '')), 'thumb': thumb.exists()}
+        videos[path.stem] = {'id': vid, 'title': data.get('title', ''), 'chapters': chapters(data.get('description', '')), 'thumb': thumb.exists(),
+                             'summary': data.get('description', '').split('\n\n', 1)[0], 'uploaded': data.get('uploaded_at'),
+                             'duration': duration(ROOT / 'videos' / f'{path.stem}.mp4'), 'transcript': transcript(ROOT / 'captions' / f'{path.stem}.srt')}
     manifest = {'updated': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), 'videos': videos}
     (SITE / 'videos.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=1) + '\n')
     print(f'{len(videos)} videos in site/videos.json')
