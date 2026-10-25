@@ -2,16 +2,6 @@
   "daily_limit": 10,
   "note": "Uploaded in this order by the daily upload task (Make scenario 4983530). kind 'unlisted' episodes stay unlisted; everything else uploads private for owner review. On success set metadata video_id + upload_status 'uploaded <date>' and remove from pending.",
   "pending": [
-    "ep35-system-map",
-    "ep47-league-rewards",
-    "ep31-hotel-map-compare",
-    "ep46-tabs-background",
-    "ep43-dark-languages",
-    "ep50-hotel-offer",
-    "ep51-package-flight",
-    "ep53-flight-filters",
-    "ep54-package-filters",
-    "ep55-event-package",
     "ep34-social-creative",
     "ep52-studio-library",
     "ep48-elite",
@@ -56,6 +46,16 @@
     "ep42-site-deals",
     "ep33-smart-itinerary",
     "ep44-pricing-margin",
-    "ep32-oneway-types"
+    "ep32-oneway-types",
+    "ep35-system-map",
+    "ep47-league-rewards",
+    "ep31-hotel-map-compare",
+    "ep46-tabs-background",
+    "ep43-dark-languages",
+    "ep50-hotel-offer",
+    "ep51-package-flight",
+    "ep53-flight-filters",
+    "ep54-package-filters",
+    "ep55-event-package"
   ]
 }
