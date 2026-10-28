@@ -1,10 +1,7 @@
 {
   "daily_limit": 2,
   "note": "Uploaded in this order by the daily upload task (Make scenario 4983530). kind 'unlisted' episodes stay unlisted; everything else uploads private for owner review. On success set metadata video_id + upload_status 'uploaded <date>' and remove from pending. Owner asked on 26 Oct 2026 to cut the volume sharply so the channel is not flagged: at most 2 uploads per day.",
-  "pending": [
-    "ep48-elite",
-    "ep49-hotel-filters"
-  ],
+  "pending": [],
   "done": [
     "ep56-speed-to-lead",
     "ep57-offer-that-closes",
@@ -56,6 +53,8 @@
     "ep54-package-filters",
     "ep55-event-package",
     "ep34-social-creative",
-    "ep52-studio-library"
+    "ep52-studio-library",
+    "ep48-elite",
+    "ep49-hotel-filters"
   ]
 }
